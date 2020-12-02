@@ -1,0 +1,198 @@
+\documentclass[14pt,a4paper]{ctexbook}
+
+% choose options for [] as required from the list
+% in the Reference Guide, Sect. 2.2
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{makeidx}
+\usepackage{hhline}
+\usepackage{mathpazo}
+\usepackage[svgnames]{xcolor}
+\usepackage{pifont}
+\usepackage{graphicx}        % standard LaTeX graphics tool
+\usepackage{float}  % force the figure at specified location
+\usepackage{multirow}
+\usepackage{geometry}
+\usepackage{diagbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{longtable}
+\usepackage{threeparttable}% tables with footnotes
+\usepackage{subfigure}
+\usepackage{enumitem}
+\usepackage{subfigmat}% matrices of similar subfigures, aka small mulitples
+\usepackage{nomencl}
+\usepackage{lscape}
+\usepackage[hyphens]{url}
+\usepackage[colorlinks=true, linkcolor=Blue, urlcolor=Maroon,citecolor=red]{hyperref}
+
+\usepackage[sorting=none,style=numeric,backend=biber]{biblatex}
+\usepackage{titlesec}
+
+%% set double Chinese characters
+\par\setlength\parindent{2em}
+
+% define a new list with no indent for itemed text
+\newlist{dingautolist2}{enumerate}{1}
+\setlist[dingautolist2,1]{
+  labelindent=\parindent,
+  leftmargin=\parindent,
+  listparindent=\parindent,
+%  labelwidth=2pt,
+%  itemsep=2pt,
+%  label=(\alph*),
+%  label=\protect\circled{\arabic*},
+%  label=\protect\textcircled{\small\arabic*},
+  label=\protect{\protect\ding{\value*}},
+  start=192,
+  align=left,
+  itemsep=0pt,
+  wide=\parindent,
+  itemindent=\parindent
+%  itemindent=\dimexpr\parindent+\labelwidth+\labelsep\relax
+}
+
+%makeindex sample.nlo -s nomencl.ist -o sample.nls
+\makeindex
+
+% run gbk2uni *.out file between two runs of latex *.tex
+
+% used for the subject index
+% please use the style sprmidx.sty with
+% your makeindex program
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{./eps/}}
+\addbibresource{economics.bib}
+
+%% rename the figure/table to 图/表
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\contentsname}{目录}
+\renewcommand*\listfigurename{图例}
+\renewcommand*\listtablename{表例}
+\renewcommand{\bibname}{参考文献}
+
+%%% set headers 
+\pagestyle{fancy}
+\lhead{Aviation Economics}
+\rhead{\thepage}
+\cfoot{Shanghai Jiao Tong University}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Subtract 1 from counters that are used
+\renewcommand{\thesection}{\thechapter.\number\numexpr\value{section}\relax}
+\renewcommand{\thesubsection}{\thesection.\number\numexpr\value{subsection}\relax}
+\renewcommand{\thesubsubsection}{\thesubsection.\number\numexpr\value{subsubsection}\relax}
+\setcounter{secnumdepth}{3}
+
+\setcounter{chapter}{0}% Not using chapters, but they're used in the counters
+
+\renewcommand{\chaptername}{章}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\contentsname}{目录}
+\renewcommand*\listfigurename{图例}
+\renewcommand*\listtablename{表例}
+\renewcommand{\bibname}{参考文献}
+
+%%% change the format of chapter
+\renewcommand\thechapter{\arabic{chapter}}
+\titleformat{\chapter}{\centering\Large\bfseries}{第\,\thechapter\,章}{1em}{}
+
+%%% change the format of subsubsection
+\renewcommand\thesubsubsection{\arabic{subsection}}
+
+%%% change the format of subsubsection
+\renewcommand\thesubsubsection{\arabic{subsubsection}}
+\titleformat{\subsubsection}[block]{\sffamily}{\arabic{subsubsection}）}{1em}{}
+
+
+
+\begin{document}
+
+\pagenumbering{arabic} % change to arabic
+\setcounter{secnumdepth}{3} 
+\setlength{\parindent}{2em}
+\setlength\intextsep{1.25\baselineskip plus 2pt minus 4pt}
+
+
+%% first line indentation
+%\let\@afterindentfalse\@afterindenttrue
+%\@afterindenttrue
+
+\begin{titlepage}
+\newcommand{\HRule}{\rule{\linewidth}{0.1mm}} 
+\center % Center everything on the page
+ 
+%---------------------------------------------------------------------------------
+%     HEADING SECTIONS (Enter the Homework/assignment No., only)
+%---------------------------------------------------------------------------------
+\textsc{\Large 上海交通大学}\\[0.5cm] % heading course Number
+\textsc{\Large 航空航天学院}\\[0.5cm] % heading course name
+
+%---------------------------------------------------------------------------------
+%     TITLE SECTION (Replace 'TITLE' with the Homework/assignment Name/title)
+%---------------------------------------------------------------------------------
+ 
+\HRule \\[0.4cm]
+{ \huge \bfseries Aviation Economics}\\[0.1cm] % Title of your Homework/assignment
+\HRule \\[1.5cm]
+ 
+%---------------------------------------------------------------------------------
+%     AUTHOR SECTION (EDIT THE NAME and T.NO., only)
+%---------------------------------------------------------------------------------
+ 
+\begin{minipage}{0.4\textwidth}
+
+\begin{center}
+    \centering
+\emph{Song Wenbin} 著 \\
+\end{center}\large 
+
+\end{minipage}\\[5cm]
+
+\vspace*{\fill}  % place text at the end of page 
+{
+\includegraphics[width=0.6\textwidth]{sjtu-logo.eps} \\[1cm]
+\large \today}\\[1cm] % Date, change the \today to a set date if you want to be precise
+\vfill % Fill the rest of the page with white-space
+\end{titlepage}
+\include{GradingRubric}
+
+\tableofcontents          % Required
+\listoffigures
+\listoftables
+\newpage
+
+%%%%%%%%%%%%%%%%
+\title{Aviation Economics}
+\author{Song Wenbin}
+
+\date
+\maketitle
+
+\newpage
+\makenomenclature
+%\pdfbookmark[1]{Contents}{table}
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+本书介绍航空经济学的相关概念、理论和方法，以及其在商用飞机研制的哥哥阶段的全寿命周期内的典型应用。航空航天产业属于高技术、高投入，和高附加值的产业，产品的周期长，复杂度高，涉及到的产业链具有全球分布的特点。
+
+
+\input{ch1-introduction/intro.tex}
+\input{operations/doc.tex}
+\input{maintenance-cost/maintenance.tex}
+\input{design-to-cost/design2cost.tex}
+\input{value/vdd}
+\input{supplychain/supplychain}
+
+
+\cleardoublepage
+\printbibliography[title=参考文献]
+%\printbibliography[heading=bibintoc,title=参考文献]
+
+\end{document}
